@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry 💖</title>
+    <style>
+        body {
+            background-color: #ffebee;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #d32f2f;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: float 4s infinite;
+            cursor: pointer;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>I'm Sorry, Majha Gulab Jamun 💖</h1>
+    <p>You are the one I was loving, I am loving and I will be loving and I never want to see you sad. please accept my sorry❤️. Love you more and more 😘😘</p>
+    <div class="overlay" id="imageOverlay" onclick="hideImage()">
+        <img src="us.jpg" alt="Love Image">
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.addEventListener('click', showImage);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        function showImage() {
+            document.getElementById('imageOverlay').style.display = 'flex';
+        }
+        function hideImage() {
+            document.getElementById('imageOverlay').style.display = 'none';
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
